@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Separar Nome e Sobrenome</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+    }
+    label {
+        display: inline-block;
+        width: 130px;
+    }
+    input {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+    button {
+        padding: 6px 12px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<h2>Separar Nome e Sobrenome</h2>
+
+<label for="nomeCompleto">Nome completo:</label>
+<input type="text" id="nomeCompleto" placeholder="Digite seu nome completo">
+<button onclick="separarNome()">>></button>
+<br>
+
+<label for="nome">Nome:</label>
+<input type="text" id="nome" readonly>
+<br>
+
+<label for="sobrenome">Sobrenome:</label>
+<input type="text" id="sobrenome" readonly>
+
+<script>
+function separarNome() {
+    let nomeCompleto = document.getElementById("nomeCompleto").value.trim();
+    
+    if (nomeCompleto === "") {
+        alert("Por favor, digite o nome completo.");
+        return;
+    }
+
+    // Divide o nome por espaços
+    let partes = nomeCompleto.split(" ").filter(p => p !== "");
+
+    if (partes.length === 1) {
+        document.getElementById("nome").value = partes[0];
+        document.getElementById("sobrenome").value = "";
+    } else {
+        document.getElementById("nome").value = partes[0];
+        document.getElementById("sobrenome").value = partes.slice(1).join(" ");
+    }
+}
+</script>
+
+</body>
+</html>
