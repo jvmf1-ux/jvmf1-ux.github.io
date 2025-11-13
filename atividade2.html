@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cálculo do IMC</title>
+<style>
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-color: #f5f8ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .caixa {
+        border: 1px solid #8eaadb;
+        background-color: #fff;
+        padding: 20px 30px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        width: 350px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #4a76c9;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: inline-block;
+        width: 60px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 200px;
+        padding: 4px;
+        margin: 5px 0;
+        border: 1px solid #aaa;
+        border-radius: 3px;
+    }
+
+    button {
+        display: block;
+        margin-top: 10px;
+        background-color: #4a76c9;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #385fa3;
+    }
+
+    .resultado {
+        display: inline-block;
+        vertical-align: top;
+        width: 120px;
+        min-height: 60px;
+        margin-left: 10px;
+        padding: 5px;
+        border: 1px solid #8eaadb;
+        background-color: #f9faff;
+        border-radius: 4px;
+    }
+
+    .formulario {
+        display: inline-block;
+    }
+</style>
+</head>
+<body>
+
+<div>
+    <h1>Cálculo do IMC</h1>
+
+    <div class="caixa">
+        <div class="formulario">
+            <label>Nome:</label>
+            <input type="text" id="nome"><br>
+
+            <label>Peso:</label>
+            <input type="number" id="peso" step="0.1"><br>
+
+            <label>Altura:</label>
+            <input type="number" id="altura" step="0.01"><br>
+
+            <button onclick="calcularIMC()">Calcular IMC</button>
+        </div>
+
+        <div class="resultado" id="resultado"></div>
+    </div>
+</div>
+
+<script>
+function calcularIMC() {
+    const nome = document.getElementById('nome').value.trim();
+    const peso = parseFloat(document.getElementById('peso').value);
+    const altura = parseFloat(document.getElementById('altura').value);
+    const resultado = document.getElementById('resultado');
+
+    if (!nome || isNaN(peso) || isNaN(altura) || altura <= 0) {
+        resultado.textContent = "Preencha todos os campos corretamente.";
+        return;
+    }
+
+    const imc = peso / (altura * altura);
+    resultado.innerHTML = `Olá, ${nome}.<br>O seu IMC é de <b>${imc.toFixed(2)}</b>`;
+}
+</script>
+
+</body>
+</html>
