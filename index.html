@@ -1,74 +1,108 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Pessoal -João Vitor Matias Ferreira</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40 px; }
-        header, section { margin-bottom: 20 px; padding: 15 px; border: 1 px solid #ccc; }
-        img { max-width: 150 px; height: auto; border-radius: 50%; } 
-    </style>
+    <link rel="shortcut icon" type="image/jpg" href="img/favicon.ico"/>
+    <title>Robotron 2000</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;500&display=swap" rel="stylesheet"> 
 </head>
 <body>
-
-    <header>
-        <h1>João Vitor Matias Ferreira</h1>
-        <p> Estudante de Desenvolvimento de sistema no IFAL | Desenvolvedor em Formação.</p>
-    </header>
-
-    <section id="image.png"
-        <h2></h2>
-        
-        <img src= "image.png" height="200px" width="200px">
-    </section>
-
-    <section id="contato">
-        <h2>📧 Contato</h2>
-        <ul>
-            <li>**E-mail:** jvmf1@aluno.ifal.edu.br</li>
-            
-  
-        </ul>
-    </section>
-
-    <section id="educacao">
-        <h2>📚 Educação</h2>
-        <div>
-            <h3>Desenvolvimento de sistemas</h3>
-            <p>**Instituição:** Instituto Federal de Alagoas (IFAL)</p>
-            <p>**Período:** [2025 - [2028]</p>
-            <p>**Detalhes:** Desejo em cursar engenharia de software.</p>
-        </div>
+    <main>
+        <section class="robotron">
+            <img class="robo" src="img/robotron.png" alt="Robotron">
+            <figcaption class="titulo">ROBOTRON <br>2000</figcaption>
+            <div class="troca-cor">
+        <button id="btnPrev">««</button>
+        <button id="btnTrocar">Trocar cor</button>
+        <button id="btnNext">»»</button>
+    </div>
         </section>
 
-    <section id="experiencia">
-        <h2>💼 Experiência Profissional</h2>
-        <div>
-            <h3>Estudante do ifal</h3>
-            <p>**Empresa: Ainda não tenho experiencias em empresas e nem com estágio</p>
-            <p></p>
-            <ul>
-                
-                </ul>
-        </div>
+        <section class="box estatisticas">
+            <div class="estatistica">
+                <p class="estatistica-titulo">Força</p>
+                <div class="estatistica-valor">
+                    <p class="estatistica-numero">768</p>
+                </div>
+            </div>
+            <div class="estatistica">
+                <p class="estatistica-titulo">Poder</p>
+                <div class="estatistica-valor">
+                    <p class="estatistica-numero">630</p>
+                </div>
+            </div>
+            <div class="estatistica">
+                <p class="estatistica-titulo">Energia</p>
+                <div class="estatistica-valor">
+                    <p class="estatistica-numero">289</p>
+                </div>
+            </div>
+            <div class="estatistica">
+                <p class="estatistica-titulo">Velocidade</p>
+                <div class="estatistica-valor">
+                    <p class="estatistica-numero">597</p>
+                </div>
+            </div>
         </section>
 
-    <section id="habilidades">
-        <h2>💡 Habilidades</h2>
-        <p>Lista de habilidades relacionadas à tecnologia e outras áreas:</p>
-        <ul>
-            <li>**Tecnológicas:** HTML5, CSS3, JavaScript, Git/GitHub, Pacote Office.</li>
-            <li>**Linguagens:** Inglês (Intermediário).</li>
-            <li>**Soft Skills:** Comunicação, Trabalho em Equipe, Resolução de Problemas.</li>
-        </ul>
-    </section>
-
-   
-
-
-    <a href="atividade1.html">Ir para a página de separar nome</a>
-    <a href="atividade2.html">Ir para a página de calcular imc</a>
-    <a href="atuv"
+        <section class="equipamentos">
+            <form action="" class="montador">
+                <div class="box montador-conteudo">
+                    <div class="peca">
+                        <label for="" class="peca-titulo">Braços</label>
+                        <div class="controle">
+                            <buttom class="controle-ajuste">-</buttom>
+                            <input type="text" class="controle-contador" value="00">
+                            <buttom class="controle-ajuste">+</buttom>
+                        </div>
+                    </div>
+                    <hr class="linha">
+                    <div class="peca">
+                        <label for="" class="peca-titulo">Blindagem</label>
+                        <div class="controle">
+                            <buttom class="controle-ajuste">-</buttom>
+                            <input type="text" class="controle-contador" value="00">
+                            <buttom class="controle-ajuste">+</buttom>
+                        </div>
+                    </div>
+                    <hr class="linha">
+                    <div class="peca">
+                        <label for="" class="peca-titulo">Núcleos</label>
+                        <div class="controle">
+                            <buttom class="controle-ajuste">-</buttom>
+                            <input type="text" class="controle-contador" value="00">
+                            <buttom class="controle-ajuste">+</buttom>
+                        </div>
+                    </div>
+                    <hr class="linha">
+                    <div class="peca">
+                        <label for="" class="peca-titulo">Pernas</label>
+                        <div class="controle">
+                            <buttom class="controle-ajuste">-</buttom>
+                            <input type="text" class="controle-contador" value="00">
+                            <buttom class="controle-ajuste">+</buttom>
+                        </div>
+                    </div>
+                    <hr class="linha">
+                    <div class="peca">
+                        <label for="" class="peca-titulo">Foguetes</label>
+                        <div class="controle">
+                            <buttom class="controle-ajuste">-</buttom>
+                            <input type="text" class="controle-contador" value="00">
+                            <buttom class="controle-ajuste">+</buttom>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Iniciar produção" class="producao" id="producao">
+            </form>
+        </section>
+    </main>
+    <script src="js/script.js"></script>
 </body>
 </html>
