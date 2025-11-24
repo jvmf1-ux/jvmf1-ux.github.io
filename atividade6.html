@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Atividade 06</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    .container {
+        display: flex;
+        gap: 40px;
+    }
+
+    .box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        width: 320px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    th, td {
+        border: 1px solid #aaa;
+        padding: 6px;
+        text-align: left;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    input, select {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+    #bt1 {
+        background-color: blue;
+    }
+    #bt2 {
+        background-color: blue;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    
+    <!-- PAGINA 1 -->
+    <div class="box">
+        <label>Categoria:</label>
+        <select id="categoria">
+            <option>Mercado</option>
+            <option>Transporte</option>
+            <option>Lazer</option>
+            <option>Outros</option>
+        </select>
+
+        <label>Valor:</label>
+        <input type="number" id="valor" step="0.01">
+
+        <label>Data:</label>
+        <input type="date" id="data">
+
+        <button id="bt1" onclick="adicionar()">Adicionar</button>
+        <button id="bt2" onclick="calcular()">Calcular</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Data</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody id="tabela"></tbody>
+        </table>
+    </div>
+
+    <!-- PAGINA 2 -->
+    <div class="box">
+        <h2>Resumo</h2>
+        <p id="total"></p>
+        <p id="totalMes04"></p>
+        <p id="totalCategoriaMercado"></p>
+    </div>
+
+</div>
+
+<script>
+    let gastos = [];
+
+    function adicionar() {
+        const categoria = document.getElementById("categoria").value;
+        const valor = Number(document.getElementById("valor").value);
+        const data = document.getElementById("data").value;
+
+        if (!valor || !data) {
+            alert("Preencha todos os campos!");
+            return;
+        }
+
+        gastos.push({ categoria, valor, data });
+        atualizarTabela();
+    }
+
+    function atualizarTabela() {
+        const tabela = document.getElementById("tabela");
+        tabela.innerHTML = "";
+
+        gastos.forEach(g => {
+            tabela.innerHTML += `
+                <tr>
+                    <td>${g.categoria}</td>
+                    <td>${g.data}</td>
+                    <td>${g.valor.toFixed(2)}</td>
+                </tr>
+            `;
+        });
+    }
+
+    function calcular() {
+        let total = 0;
+        let totalMes04 = 0;
+        let totalMercado = 0;
+
+        gastos.forEach(g => {
+            total += g.valor;
+
+            const mes = g.data.split("-")[1]; 
+            if (mes === "04") {
+                totalMes04 += g.valor;
+            }
+
+            if (g.categoria === "Mercado") {
+                totalMercado += g.valor;
+            }
+        });
+
+        document.getElementById("total").innerText =
+            "Total: " + total.toFixed(2);
+
+        document.getElementById("totalMes04").innerText =
+            "Total no Mês 04: " + totalMes04.toFixed(2);
+
+        document.getElementById("totalCategoriaMercado").innerText =
+            "Total de gastos com Mercado: " + totalMercado.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
